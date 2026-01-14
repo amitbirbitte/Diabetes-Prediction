@@ -8,7 +8,7 @@ app = Flask(__name__)
 # Load model and scaler
 model = pickle.load(open("Diabetes-Prediction-model.pkl", "rb"))
 
-@app.route("/")
+@app.route("")
 def landing():
     return render_template("home.html")   # landing page image here
 
@@ -17,7 +17,7 @@ def home():
     return render_template("index.html")  # input form
 
 
-@app.route("/predict", methods=["POST"])
+@app.route("/predictform", methods=["POST"])
 def predict():
     try:
         Pregnancies = float(request.form.get( "Pregnancies"))
@@ -59,3 +59,4 @@ def predict():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
