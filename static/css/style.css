@@ -1,0 +1,126 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(270deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
+  background-size: 800% 800%;
+  animation: gradientShift 18s ease infinite;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.container-fluid {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 25px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  max-width: 1000px;
+  height: 80vh;
+  overflow: hidden;
+  display: flex;
+}
+
+.form-section {
+  width: 50%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #1f2937;
+  position: relative;
+}
+
+.heartbeat {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  animation: beat 1s infinite;
+}
+
+@keyframes beat {
+  0%, 100% {
+    transform: scale(1);
+    color: #2563eb;
+  }
+  50% {
+    transform: scale(1.2);
+    color: #3b82f6;
+  }
+}
+
+.fade-section {
+  display: none;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.fade-section.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btn-custom {
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
+  color: #fff;
+  border: none;
+  border-radius: 45px;
+  padding: 10px 25px;
+  transition: 0.3s;
+}
+
+.btn-custom:hover {
+  transform: scale(1.05);
+}
+
+.image-section {
+  width: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.image-section img {
+  max-width: 90%;
+  border-radius: 20px;
+  transition: opacity 0.5s ease;
+}
+
+.image-section img.fade-out {
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .container-fluid {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .form-section,
+  .image-section {
+    width: 100%;
+  }
+
+  .image-section {
+    display: none;
+  }
+}
